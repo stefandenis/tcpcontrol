@@ -16,9 +16,12 @@
  #include "motoare.h"
  #include "mqtt/mqtt_core/mqtt_core.h"
  #include "mqtt/mqtt_comm_bsd/mqtt_comm_layer.h"
+ #include "adafruit/adafruit_service.h"
+ 
  int usart_putchar_printf(char var, FILE *stream);
  
  static FILE mystdout = FDEV_SETUP_STREAM(usart_putchar_printf, NULL, _FDEV_SETUP_WRITE);
+
 
 
 int usart_putchar_printf(char var, FILE *stream){
@@ -69,29 +72,46 @@ char order[10];
 
 char Password[456]="qwertyhnkl";
 char clientID[]="5dad78fc-6853-4115-862e-9de796fe2eff";
-char mqttTopic[MQTT_TOPIC_LENGTH];
+char mqttTopic[]="aphosura4ever/feeds/robowifi";
 char mqttHost[] = "io.adafruit.com";
 char Username[]="aphosura4ever";
 char insecurePort[]="1883";
 
 
+bool sendSubscribe = true;
+
 void received_from_adafruit(uint8_t *topic, uint8_t *payload);
 
+uint8_t pwm=70;
+void get_number(char order[]){
+	
+	int zeci = order[1];
+	int unitate = order[2];
+	pwm = zeci*10 + unitate;
+	
+	
+	
+}
+
+
+int flag_pwm_control = 0;
 void get_command(char *str,tstrSocketRecvMsg *pCommand){
-
-
 
 int i=0;
 for(i=0;i<sizeof(order);i++){
 	order[i]=0x00;
 }
 i=0;
-while(*(pCommand->pu8Buffer+i) != 0x0D){
+while(*(pCommand->pu8Buffer+i) != 'x' && i<10){
  	
 	*(str+i)=*(pCommand->pu8Buffer+i);
 	i++;
 	
 }
+
+
+
+//printf("order: %s",order);
 
 }
 
@@ -167,9 +187,7 @@ static void socket_cb(SOCKET sock, uint8_t u8Msg, void *pvMsg)
 	/* Message send */
 	case SOCKET_MSG_SEND: {//  		printf("socket_cb: send success!\r\n");
  		recv(tcp_client_socket, gau8SocketTestBuffer, sizeof(gau8SocketTestBuffer), 0);
-		 printf("TCP Server Test Complete!\r\n");
- 		printf("close socket\n");
- 	
+		 
  	} break;
 
 
@@ -180,22 +198,32 @@ static void socket_cb(SOCKET sock, uint8_t u8Msg, void *pvMsg)
 			printf("socket_cb: recv success!\r\n");
 			
 			get_command(order, pstrRecv);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			if(strcmp(order,"rotate")==0){		
-				motor_start_left_wheel();
-				motor_start_right_wheel();
-				motor_reverse_left_wheel();
+				motor_start_left_wheel(pwm);
+				motor_start_right_wheel(pwm);
+				motor_reverse_left_wheel(pwm);
 				printf("rotating !!");
 			}
 			if(strcmp(order,"forward")==0){
-				motor_start_left_wheel();
-				motor_start_right_wheel();
+				motor_start_left_wheel(pwm);
+				motor_start_right_wheel(pwm);
 				
 			}
 			if(strcmp(order,"backward")==0){
-				motor_start_left_wheel();
-				motor_start_right_wheel();
-				motor_reverse_left_wheel();
-				motor_reverse_right_wheel();
+				motor_start_left_wheel(pwm);
+				motor_start_right_wheel(pwm);
+				motor_reverse_left_wheel(pwm);
+				motor_reverse_right_wheel(pwm);
 				
 				
 			}
@@ -203,6 +231,18 @@ static void socket_cb(SOCKET sock, uint8_t u8Msg, void *pvMsg)
 				motor_stop_left_wheel();
 				motor_stop_right_wheel();
 			}
+			
+			if(strcmp(order,"left")==0){
+				motor_stop_left_wheel();
+				motor_start_right_wheel(pwm);
+			}
+			if(strcmp(order,"right")==0){
+				motor_start_left_wheel(pwm);
+				motor_stop_right_wheel();
+			}
+					
+			
+					
 					
 				if(strcmp(order,"close")==0){
 					motor_stop_left_wheel();
@@ -210,6 +250,24 @@ static void socket_cb(SOCKET sock, uint8_t u8Msg, void *pvMsg)
 					close(tcp_client_socket);
 					close(tcp_server_socket);
 				}
+				
+				if(order[0] == 'c'){
+					get_number(order);
+					if(TCB1.CCMPH != 0 && TCB3.CCMPH !=0){
+					TCB1.CCMPH = right_pwm_duty(pwm);
+					TCB3.CCMPH = left_pwm_duty(pwm);
+					}
+					if(TCB1.CCMPH != 0 && TCB3.CCMPH == 0 ){
+						TCB1.CCMPH = right_pwm_duty(pwm);
+						
+					}
+					if(TCB3.CCMPH != 0 && TCB1.CCMPH == 0 ){
+						TCB3.CCMPH = right_pwm_duty(pwm);
+						
+					}
+				
+				}
+				
 			
 			printf("%s \n \r ",order);
 			
@@ -347,12 +405,10 @@ int main(void){
 
 //PORTB.DIR |= PIN5_bm;
 
-/* MQTT STUFF ?*/ 
 
 
 
-		
-mqtt_client_connect();
+
 	
 while (1) {
 	

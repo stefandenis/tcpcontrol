@@ -243,74 +243,73 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <AvrGcc>
-  <avrgcc.common.Device>-mmcu=atmega4809 -B "%24(PackRepoDir)\Atmel\ATmega_DFP\1.2.209\gcc\dev\atmega4809"</avrgcc.common.Device>
-  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
-  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-      <Value>TCPIP_BSD</Value>
-    </ListValues>
-  </avrgcc.compiler.symbols.DefSymbols>
-  <avrgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.2.209\include</Value>
-      <Value>../examples/include</Value>
-      <Value>../include</Value>
-      <Value>../utils</Value>
-      <Value>../utils/assembler</Value>
-      <Value>../</Value>
-      <Value>../cryptoauthlib</Value>
-      <Value>../cryptoauthlib/lib</Value>
-      <Value>../cryptoauthlib/lib/atcacert</Value>
-      <Value>../cryptoauthlib/lib/basic</Value>
-      <Value>../cryptoauthlib/lib/crypto</Value>
-      <Value>../cryptoauthlib/lib/hal</Value>
-      <Value>../cryptoauthlib/lib/host</Value>
-      <Value>../winc</Value>
-      <Value>../Config</Value>
-    </ListValues>
-  </avrgcc.compiler.directories.IncludePaths>
-  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcc.compiler.optimization.UseShortCalls>True</avrgcc.compiler.optimization.UseShortCalls>
-  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-  <avrgcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </avrgcc.linker.libraries.Libraries>
-  <avrgcc.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.2.209\include</Value>
-      <Value>../app</Value>
-      <Value>../Config</Value>
-      <Value>../examples/include</Value>
-      <Value>../include</Value>
-      <Value>../utils</Value>
-      <Value>../utils/assembler</Value>
-      <Value>../</Value>
-      <Value>../cryptoauthlib</Value>
-      <Value>../cryptoauthlib/lib</Value>
-      <Value>../cryptoauthlib/lib/atcacert</Value>
-      <Value>../cryptoauthlib/lib/basic</Value>
-      <Value>../cryptoauthlib/lib/crypto</Value>
-      <Value>../cryptoauthlib/lib/hal</Value>
-      <Value>../cryptoauthlib/lib/host</Value>
-    </ListValues>
-  </avrgcc.assembler.general.IncludePaths>
-  <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
-</AvrGcc>
+        <avrgcc.common.Device>-mmcu=atmega4809 -B "%24(PackRepoDir)\Atmel\ATmega_DFP\1.2.209\gcc\dev\atmega4809"</avrgcc.common.Device>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>TCPIP_BSD</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.2.209\include</Value>
+            <Value>../examples/include</Value>
+            <Value>../include</Value>
+            <Value>../utils</Value>
+            <Value>../utils/assembler</Value>
+            <Value>../</Value>
+            <Value>../cryptoauthlib</Value>
+            <Value>../cryptoauthlib/lib</Value>
+            <Value>../cryptoauthlib/lib/atcacert</Value>
+            <Value>../cryptoauthlib/lib/basic</Value>
+            <Value>../cryptoauthlib/lib/crypto</Value>
+            <Value>../cryptoauthlib/lib/hal</Value>
+            <Value>../cryptoauthlib/lib/host</Value>
+            <Value>../winc</Value>
+            <Value>../Config</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.UseShortCalls>True</avrgcc.compiler.optimization.UseShortCalls>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.2.209\include</Value>
+            <Value>../app</Value>
+            <Value>../Config</Value>
+            <Value>../examples/include</Value>
+            <Value>../include</Value>
+            <Value>../utils</Value>
+            <Value>../utils/assembler</Value>
+            <Value>../</Value>
+            <Value>../cryptoauthlib</Value>
+            <Value>../cryptoauthlib/lib</Value>
+            <Value>../cryptoauthlib/lib/atcacert</Value>
+            <Value>../cryptoauthlib/lib/basic</Value>
+            <Value>../cryptoauthlib/lib/crypto</Value>
+            <Value>../cryptoauthlib/lib/hal</Value>
+            <Value>../cryptoauthlib/lib/host</Value>
+          </ListValues>
+        </avrgcc.assembler.general.IncludePaths>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="adafruit\" />
     <Folder Include="Config\" />
     <Folder Include="Debug\" />
     <Folder Include="Debug\" />
@@ -325,10 +324,6 @@
     <Folder Include="examples\include\" />
     <Folder Include="examples\src\" />
     <Folder Include="include\" />
-    <Folder Include="mqtt\" />
-    <Folder Include="mqtt\mqtt_comm_bsd\" />
-    <Folder Include="mqtt\mqtt_core\" />
-    <Folder Include="mqtt\mqtt_exchange_buffer\" />
     <Folder Include="src\" />
     <Folder Include="utils\" />
     <Folder Include="utils\assembler\" />
@@ -354,9 +349,6 @@
     <Folder Include="winc\spi_flash\source" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adafruit\adafruit_service.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="atmel_start.c">
       <SubType>compile</SubType>
     </Compile>
@@ -376,33 +368,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="motoare.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mqtt\mqtt_comm_bsd\mqtt_comm_layer.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mqtt\mqtt_comm_bsd\mqtt_comm_layer.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mqtt\mqtt_config.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mqtt\mqtt_core\mqtt_core.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mqtt\mqtt_core\mqtt_core.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mqtt\mqtt_exchange_buffer\mqtt_exchange_buffer.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mqtt\mqtt_exchange_buffer\mqtt_exchange_buffer.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mqtt\mqtt_packetTransfer_interface.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mqtt\mqtt_packetTransfer_interface.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="winc_init.h">

@@ -41,7 +41,8 @@ main.d main.o: .././main.c \
  .././mqtt/mqtt_core/../mqtt_comm_bsd/../mqtt_exchange_buffer/mqtt_exchange_buffer.h \
  ../include/../winc/socket/include/socket.h \
  .././mqtt/mqtt_core/../mqtt_config.h \
- .././mqtt/mqtt_comm_bsd/mqtt_comm_layer.h
+ .././mqtt/mqtt_comm_bsd/mqtt_comm_layer.h \
+ .././adafruit/adafruit_service.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -162,3 +163,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././mqtt/mqtt_core/../mqtt_config.h:
 
 .././mqtt/mqtt_comm_bsd/mqtt_comm_layer.h:
+
+.././adafruit/adafruit_service.h:

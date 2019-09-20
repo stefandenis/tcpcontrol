@@ -44,9 +44,9 @@
 #include "mqtt/mqtt_core/mqtt_core.h"
 #include "wifi_service.h"
 
-#include "application_manager.h"
-#include "credentials_storage/credentials_storage.h"
-#include "led.h"
+//#include "application_manager.h"
+//#include "credentials_storage/credentials_storage.h"
+//#include "led.h"
 #include "mqtt/mqtt_packetTransfer_interface.h"
 
 static bool cloudInitialized = false;
